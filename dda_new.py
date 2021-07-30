@@ -37,13 +37,11 @@ class DDA_graphics:
         dx = (self.x2-self.x1)/float(length)
         dy = (self.y2-self.y1)/float(length)
         gfxdraw.pixel(screen, self.ROUND(x),self.ROUND(y), white)
-    
-            
-
-
+        print ('x = %s, y = %s' % (((self.ROUND(x),self.ROUND(y)))))
         for i in range(length):
             x+= dx
             y+= dy
+            print ('x = %s, y = %s' % (((self.ROUND(x),self.ROUND(y)))))
             gfxdraw.pixel(screen, self.ROUND(x), self.ROUND(y), white)
         pygame.display.flip()
         while 1:
@@ -53,4 +51,5 @@ class DDA_graphics:
     def menu_main_dda(self):   
 
         self.dda()
+        print()
   
