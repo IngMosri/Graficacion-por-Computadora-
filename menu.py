@@ -1,5 +1,14 @@
-   import dda_new
+from dda_new import DDA_graphics
 class Main_menu:
+    
+    def int_input(prompt):
+        while True:
+            try:
+                coordinate = int(input(prompt))
+                return coordinate
+            except ValueError as e:
+                print('El valor debe de ser numerico, por favor intenta ingresar otro valor')
+
     def show_dda_menu():
      
         correcto=False
@@ -34,8 +43,16 @@ class Main_menu:
         opcion = show_dda_menu()
         
         if opcion == 1:
-            dda_new.DDA_graphics.menu_main_dda()
+
+            x1 = int_input('Ingresa el valor numerico de x1: ')
+            y1 = int_input('Ingresa el valor numerico de y1: ')
+            x2 = int_input('Ingresa el valor numerico de x2: ')
+            y2 = int_input('Ingresa el valor numerico de y2: ')
+
+            dda = DDA_graphics(x1,x2,y1,y2)
+            dda.menu_main_dda()
             print ("Option 1")
+
         elif opcion == 2:
             print ("Option 2")
         elif opcion == 3:
@@ -55,7 +72,6 @@ class Main_menu:
             print ("Choose the option beetween 1 and 8")
         
         print ("End")
-
 
         
 
