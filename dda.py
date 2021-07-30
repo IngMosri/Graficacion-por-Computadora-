@@ -1,6 +1,5 @@
-
 def ROUND(a):
-
+    
   return int(a + 0.5)
 
 def drawDDA(x1,y1,x2,y2):
@@ -13,10 +12,8 @@ def drawDDA(x1,y1,x2,y2):
   dx = (x2-x1)/float(length)
 
   dy = (y2-y1)/float(length)
-  
-  
 
-  print ('x = %s, y = %s' % (((ROUND(x),ROUND(a)(y)))))
+  print ('x = %s, y = %s' % (((ROUND(x),ROUND(y)))))
 
   for i in range(length):
 
@@ -24,7 +21,6 @@ def drawDDA(x1,y1,x2,y2):
 
     y += dy
 
-    print ('x = %s, y = %s' % (((ROUND(x),ROUND(a)(y)))))
+    print ('x = %s, y = %s' % (((ROUND(x),ROUND(y)))))
 
-drawDDA(19,0,0,13)
-
+drawDDA(2,5,10,20)
