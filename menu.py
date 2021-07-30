@@ -1,3 +1,4 @@
+   import dda_new
 class Main_menu:
     def show_dda_menu():
      
@@ -33,6 +34,7 @@ class Main_menu:
         opcion = show_dda_menu()
         
         if opcion == 1:
+            dda_new.DDA_graphics.menu_main_dda()
             print ("Option 1")
         elif opcion == 2:
             print ("Option 2")
