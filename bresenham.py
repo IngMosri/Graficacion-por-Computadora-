@@ -1,34 +1,78 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns; sns.set()
 
+class Bresenham:
 
-# function for line generation
-def bresenham(x1,y1,x2, y2):
+	def __init__(self, x1, y1, x2, y2):
+		self.x1 = x1
+		self.y1 = y1
+		self.x2 = x2
+		self.y2 = y2
+      		
+	def sign(self,a):
+		if a>0:
+			ret = 1
+		elif a<0:
+			ret = -1
+		else:
+			ret = 0
+		return ret
 
-	m_new = 2 * (y2 - y1)
-	slope_error_new = m_new - (x2 - x1)
+	def main_bresenham(self):
+		x1 = self.x1
+		y1 = self.y1
+		x2 = self.x2 
+		y2 = self.y2
+		print("\n#############")
 
-	y=y1
-	for x in range(x1,x2+1):
-	
-		print("(",x ,",",y ,")\n")
+		x = x1
+		y = y1
+		dx = abs(x2-x)
+		dy = abs(y2-y)
+		s1 = self.sign(x2-x1)
+		s2 = self.sign(y2-y1)
 
-		# Add slope to increment angle formed
-		slope_error_new =slope_error_new + m_new
+		if dy>dx:
+			dx, dy = dy, dx
+			interchange = 1
+		else:
+			interchange = 0
 
-		# Slope error reached limit, time to
-		# increment y and update slope error.
-		if (slope_error_new >= 0):
-			y=y+1
-			slope_error_new =slope_error_new - 2 * (x2 - x1)
-		
-	
+		print("dx : ",dx,"\ndy : ",dy)
+		e = 2*dy - dx
+		print("e : ",e)
+		print("interchange :", interchange,"\n")
+		#display list
+		x_list = []
+		y_list = []
+		x_ = []
+		y_ = []
+		e_ = []
 
+		for i in range(dx):
+				x_list.append(x)
+				y_list.append(y)
+				while(e>=0):
+					if interchange==1:
+						x = x +s1
+						
+					else:
+						y = y + s2
+						
+					e = e - 2*dx
+				if interchange==1:
+					y = y + s2
+					
+				else:
+					x = x + s1
+					
 
-# driver function
-if __name__=='__main__':
-	x1 = 3
-	y1 = 2
-	x2 = 15
-	y2 = 5
-	bresenham(x1, y1, x2, y2)
+				e = e + 2*dy
+				e_.append(e)
 
-#This code is contributed by ash264
+		print(pd.DataFrame({"X":x_list, "Y":y_list,"e":e_}))
+
+		plt.scatter(x_list, y_list, color='red')
+		plt.plot(x_list, y_list)
+		plt.show()
