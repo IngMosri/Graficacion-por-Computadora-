@@ -1,9 +1,10 @@
+#Liberia necesarias para ejecutar el proyecto 
 import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 
 class ElipsePuntoMedio:
-
+#Inicializacion de las variables mayores, menos, X y Y centrales 
     def __init__(self, major, minor, xcenter, ycenter):
         self.major = major
         self.minor = minor
@@ -16,7 +17,7 @@ class ElipsePuntoMedio:
         minor = self.minor
         xcenter = self.xcenter
         ycenter =  self.ycenter
-
+#operacion de las variables
         x = 0
         y = minor
         p1 = minor**2 - (major**2 * minor) + (0.25 * major**2)
@@ -27,7 +28,7 @@ class ElipsePuntoMedio:
         self.img.putpixel((x+xcenter, -y+ycenter), 3)
         self.img.putpixel((-x+xcenter, -y+ycenter), 3)
 
-        # Region 1
+        # region 1 
         while(dx < dy):
             x += 1
             if (p1 < 0):
@@ -43,7 +44,7 @@ class ElipsePuntoMedio:
             self.img.putpixel((x+xcenter, -y+ycenter), 3)
             self.img.putpixel((-x+xcenter, -y+ycenter), 3)
 
-        # Region 2
+        # Region 2 
         p2 = (minor * (x + 0.5))**2 + (major * (y-1))**2 - (major * minor)**2
         if(dx >= dy):
             while(y>=0):

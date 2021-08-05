@@ -67,8 +67,12 @@ class Main_menu:
         elif opcion == 3:
 
             radius = int_input('Ingresa el valor numerico del radio: ')
-            circuloDDA = CirculoDDA(radius)
+            xcenter = int_input('Ingresa el valor numerico de centro de x: ')
+            ycenter = int_input('Ingresa el valor numerico de centro de y: ')
+
+            circuloDDA = CirculoDDA(radius,xcenter,ycenter)
             circuloDDA.circle_main()
+
         elif opcion == 4:
             
             x = int_input('Ingresa el valor numerico de x: ')
@@ -98,12 +102,10 @@ class Main_menu:
             p.paraMid()
 
         elif opcion == 7:
-            print ("Option 7")
-        elif opcion == 8:
             print("Salir")
             salir = True
         else:
-            print ("Choose the option beetween 1 and 8")
+            print ("Choose the option beetween 1 and 7")
         
         print ("End")
 

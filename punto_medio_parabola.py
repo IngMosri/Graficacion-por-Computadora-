@@ -1,18 +1,21 @@
+#librerias
 import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
+
 class ParabolaPuntoMedio:
+    #definicion de variables
     def __init__(self,xcentro, ycentro, altura):
         self.xcentro = xcentro
         self.ycentro = ycentro
         self.altura = altura
         self.img = Image.fromarray(np.zeros((500, 500), dtype=np.float32), mode= "F")
-
+    
+    #funcion que guarda los puntos y la simetria
     def plotPoint(self, x, y):
-        #funcion que guarda los puntos y la simetria
         self.img.putpixel((x + self.xcentro, y + self.ycentro),3)
         self.img.putpixel(( x + self.xcentro, - y + self.ycentro),3)
-    
+    #funcion main que evalua con el ciclo los puntos a graficar
     def paraMid(self):
         x = 0
         y = 0

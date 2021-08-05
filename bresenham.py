@@ -1,15 +1,16 @@
+#Liberias necesarias para la graficacion 
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns; sns.set()
 
 class Bresenham:
-
+#definicion de los valores 
 	def __init__(self, x1, y1, x2, y2):
 		self.x1 = x1
 		self.y1 = y1
 		self.x2 = x2
 		self.y2 = y2
-      		
+#comprobacion de los valores
 	def sign(self,a):
 		if a>0:
 			ret = 1
@@ -38,7 +39,7 @@ class Bresenham:
 			interchange = 1
 		else:
 			interchange = 0
-
+#parametro de revision de la ecuacion 
 		print("dx : ",dx,"\ndy : ",dy)
 		e = 2*dy - dx
 		print("e : ",e)
@@ -49,7 +50,7 @@ class Bresenham:
 		x_ = []
 		y_ = []
 		e_ = []
-
+#Insertado de los valores en la lista 
 		for i in range(dx):
 				x_list.append(x)
 				y_list.append(y)
@@ -71,6 +72,7 @@ class Bresenham:
 				e = e + 2*dy
 				e_.append(e)
 
+		pd.set_option('display.max_colwidth', None)
 		print(pd.DataFrame({"X":x_list, "Y":y_list,"e":e_}))
 
 		plt.scatter(x_list, y_list, color='red')

@@ -1,8 +1,10 @@
+#Liberias necesarias para el proyecto 
 import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 class CirculoPuntoMedio:
 
+    #definicion e inicializacion de las variables 
     def __init__(self, x, y, ycenter, xcenter):
         self.x = x
         self.y = y
@@ -15,7 +17,7 @@ class CirculoPuntoMedio:
         xcenter = self.xcenter
         y = self.y
         ycenter = self.ycenter
-
+# definicion del punto medio y la comprobacion de las variables de la imagen para el pixel a graficar 
         p = 1.25 - y
         self.img.putpixel((x+xcenter, y+ycenter), 3)
         self.img.putpixel((-x+xcenter, y+ycenter), 3)
@@ -26,6 +28,7 @@ class CirculoPuntoMedio:
                 self.img.putpixel((-y+xcenter, x+ycenter), 3)
                 self.img.putpixel((y+xcenter, -x+ycenter), 3)
                 self.img.putpixel((-y+xcenter, -x+ycenter), 3)
+                #Comprobacion de las variables de x, y para la ecuacion del algoritmo 
         while(x<=y):
             x = x+1
             if(p >= 0):
@@ -35,6 +38,7 @@ class CirculoPuntoMedio:
                 p = p + 2*x + 3
             if(x>y):
                 break
+                #Comprobacion y pintado de pixel en la imagen 
             self.img.putpixel((x+xcenter, y+ycenter), 3)
             self.img.putpixel((-x+xcenter, y+ycenter), 3)
             self.img.putpixel((x+xcenter, -y+ycenter), 3)
