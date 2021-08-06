@@ -1,9 +1,11 @@
 from dda import DDA
+from pug import pugLife
 from bresenham import Bresenham
 from circulo_punto_medio import CirculoPuntoMedio
 from circulo_dda  import CirculoDDA
 from elipse_punto_medio import ElipsePuntoMedio
 from punto_medio_parabola import ParabolaPuntoMedio
+from poligono import Polygono
 class Main_menu:
     
     def int_input(prompt):
@@ -40,7 +42,9 @@ class Main_menu:
         print("[4] Circulo Punto Medio")
         print("[5] Elipse Punto Medio")
         print("[6] Parabola")
-        print("[7] Salir")
+        print("[7] Poligono regular")
+        print("[8] Puntos extra")
+        print("[9] Salir")
                 
         opcion = menuSelection()
         
@@ -102,10 +106,20 @@ class Main_menu:
             p.paraMid()
 
         elif opcion == 7:
+            lados = int_input('Ingresa el valor numerico de lados: ')
+            radio = int_input('Ingresa el valor numerico entero del radio: ')
+            direccion = int_input('Ingresa el valor de la direccion: ')
+            poly = Polygono(lados,radio,direccion)
+            poly.MainPolygono()
+
+        elif opcion == 8:
+            p = pugLife()
+            p.printPug()
+        elif opcion == 9:
             print("Salir")
             salir = True
         else:
-            print ("Choose the option beetween 1 and 7")
+            print ("Choose the option beetween 1 and 9")
         
         print ("End")
 
